@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    Mercatino
+{% endblock %}
+
+{% block content %}
+    <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Codice a barre</th>
+        <th scope="col">Prezzo</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in items %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.barcode }}</td>
+            <td>{{ item.price }} €</td>
+            <td>
+                <button class="btn btn-outline btn-info">Altre informazioni</button>
+                <button class="btn btn-outline btn-success">Compra ora</button>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
