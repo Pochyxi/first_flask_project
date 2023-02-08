@@ -1,0 +1,8 @@
+Dato che l'applicativo aveva bisogno di essere più modulare, il packagin ci viene incontro nel seguente modo:
+
+il file __ini__.py determina che la cartella che detiene i file al suo interno è un package, cioe tutte le variabili
+all'interno di tutti i file che si trovano nel package sono condivisibili tra loro richiamando
+"from market import 'nome_variabile'"
+
+ad esempio nel file routes.py abbiamo importato l'entità Item tramite Market.models che non è altro che il file che si
+trova nel package market
