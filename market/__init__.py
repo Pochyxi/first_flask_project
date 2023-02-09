@@ -1,6 +1,19 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
+
+
+# inizializzare l'app flask
+app = Flask(__name__)
+
+# configurare il database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
+
+# collegare l'app al database
+db = SQLAlchemy(app)
+
+from market import routes
+
 # aprire il terminale nella cartella di progetto e scrivere python
 # poi digitare le seguenti righe di codice per creare i database
 # >>> from market import app, db
@@ -20,13 +33,12 @@ from flask_sqlalchemy import SQLAlchemy
 # ricercare con un filtro tutti gli elementi nel database
 #  Item.query.filter_by(price=500)
 
-# inizializzare l'app flask
-app = Flask(__name__)
+# per resettare il database :
+# >>> app.app_context().push()
+# >>> db.drop_all()
+# >>> db.create_all()
 
-# configurare il database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
+# filtrare un utente per nome utente e ritornarne solo 1 elemento:
+# i1.owner = User.query.filter_by(username='jsc').first().id
 
-# collegare l'app al database
-db = SQLAlchemy(app)
 
-from market import routes
