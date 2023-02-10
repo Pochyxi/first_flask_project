@@ -1,13 +1,13 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-
-
+from flask import Flask
 
 # inizializzare l'app flask
 app = Flask(__name__)
 
 # configurare il database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
+app.config['SECRET_KEY'] = 'dba43639487b75d5ac62d9f4'
 
 # collegare l'app al database
 db = SQLAlchemy(app)
@@ -41,4 +41,5 @@ from market import routes
 # filtrare un utente per nome utente e ritornarne solo 1 elemento:
 # i1.owner = User.query.filter_by(username='jsc').first().id
 
-
+# flask-wtf
+# pip install wtforms
