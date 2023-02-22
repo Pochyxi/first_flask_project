@@ -1,4 +1,3 @@
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 
@@ -41,5 +40,3 @@ from market import routes
 # filtrare un utente per nome utente e ritornarne solo 1 elemento:
 # i1.owner = User.query.filter_by(username='jsc').first().id
 
-# flask-wtf
-# pip install wtforms
